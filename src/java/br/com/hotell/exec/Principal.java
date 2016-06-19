@@ -1,7 +1,9 @@
 package br.com.hotell.exec;
 
-import br.com.hotell.model.DAO.FuncionarioDAO;
+import br.com.hotell.model.DAO.DiariaDAO;
+import br.com.hotell.model.OB.Diaria;
 import br.com.hotell.model.OB.Funcionario;
+import br.com.hotell.model.OB.Hospede;
 
 /**
  *
@@ -11,21 +13,17 @@ public class Principal {
 
     public static void main(String[] args) {
 
+        Diaria d = new Diaria();
+        
+        d.setQuarto(2);
         Funcionario f = new Funcionario();
         f.setId(1);
-
-        Funcionario f1 = FuncionarioDAO.consultarFuncionario(f);
-        System.out.println(f1.getNome());
-        System.out.println(f1.getPerfil());
-
-        f1.setPerfil(3);
         
-        FuncionarioDAO.alterarFuncionario(f1);
-        
-        f = FuncionarioDAO.consultarFuncionario(f);
-        
-        System.out.println(f.getNome());
-        System.out.println(f.getPerfil());
+        Hospede h = new Hospede();
+        h.setId(1);
+        d.setFuncionario(f);
+        d.setHospede(h);
+        DiariaDAO.incluirDiaria(d);
 
 
     }

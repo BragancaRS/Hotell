@@ -34,19 +34,29 @@
                                 <li>
 
                                     <h:commandLink value="Novo Funcionário" action="cadFuncionario" styleClass="subs"/>
-
                                     <li><h:commandLink value= "Excluir Funcionário" action="#{navControl.excluirFuncionario()}"/></li>
                                     <li><h:commandLink value= "Alterar Funcionário" action="#{navControl.alterarFuncionario()}"/></li>                                
                                     <li><h:commandLink value= "Incluir Funcionário" action="#{navControl.incluirFuncionario()}"/></li>
                                 </li>
                             </ul>
                         </li>
+                        <li><a href="#">Tipo de Hospedagem</a>
+                            <ul class="subs">
+                                <li>
+
+                                    <h:commandLink value="Novo Tipo de Quarto" action="cadFuncionario" styleClass="subs"/>
+                                    <li><h:commandLink value= "Excluir Tipo de Quarto" action="#{navControl.excluirTipoQuarto()}"/></li>
+                                    <li><h:commandLink value= "Alterar Tipo de Quarto" action="#{navControl.alterarTipoQuarto()}"/></li>                                
+                                    <li><h:commandLink value= "Incluir Tipo de Quarto" action="#{navControl.incluirTipoQuarto()}"/></li>
+                                </li>
+                            </ul>
+                        </li>
                         <li><a href="#s1">Diaria </a>
                             <ul class="subs">
                                 <li>
-                                    <h:commandLink value= "Nova Diaria" action="cadEmpresa"/></li>
-                                <li><h:commandLink value="Serviços Predefinidos" action="cadProblema"/> </li>
-                                <li><h:commandLink value="Ver Dados da Empresa" action="altEmpresa"/> </li>
+                                    <h:commandLink value= "Nova Diaria" action="#{navControl.incluirDiaria()}"/></li>
+                                    <li><h:commandLink value="Finalizar Diaria" action="#{navControl.finalizarDiaria()}"/> </li>
+                                    <li><h:commandLink value="Cancelar Diaria" action="#{navControl.cancelarDiaria()}"/> </li>
                             </ul>
                         </li>
                         <li><h:commandLink value= "Sobre" action="sobre"/></li>
