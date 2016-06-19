@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta charset="utf-8" />
+
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <h:outputStylesheet library="css" name="main.css"/>
+
+    </h:head>
+
+    <h:body>
+        <ui:insert name="top">
+            <h:form>
+                <div class="container">
+                    <ul id="nav">
+                        <li><h:commandLink value="Início" action="#{navControl.inicio}"/></li>
+                        <li><a href="#">Clientes</a>
+                            <ul class="subs">
+
+                                <li>
+                                    <li><h:commandLink value= "Excluir Cliente" action="#{navControl.excluirHospede()}"/></li>
+                                    <li><h:commandLink value= "Cadastrar Cliente" action="#{navControl.incluirHospede}"/></li>                                
+                                    <li><h:commandLink value= "Alterar Dados do Cliente" action="#{navControl.alterarHospede}"/></li>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Funcionários</a>
+                            <ul class="subs">
+                                <li>
+
+                                    <h:commandLink value="Novo Funcionário" action="cadFuncionario" styleClass="subs"/>
+
+                                    <li><h:commandLink value= "Excluir Funcionário" action="#{navControl.excluirFuncionario()}"/></li>
+                                    <li><h:commandLink value= "Alterar Funcionário" action="#{navControl.alterarFuncionario()}"/></li>                                
+                                    <li><h:commandLink value= "Incluir Funcionário" action="#{navControl.incluirFuncionario()}"/></li>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#s1">Diaria </a>
+                            <ul class="subs">
+                                <li>
+                                    <h:commandLink value= "Nova Diaria" action="cadEmpresa"/></li>
+                                <li><h:commandLink value="Serviços Predefinidos" action="cadProblema"/> </li>
+                                <li><h:commandLink value="Ver Dados da Empresa" action="altEmpresa"/> </li>
+                            </ul>
+                        </li>
+                        <li><h:commandLink value= "Sobre" action="sobre"/></li>
+                    </ul>
+                </div>
+            </h:form>
+        </ui:insert>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Conteúdo Template</ui:insert>
+        </div>
+        
+    </h:body>
+
+</html>

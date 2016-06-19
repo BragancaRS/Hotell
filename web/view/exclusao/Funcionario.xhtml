@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+       	<meta charset="utf-8" />
+        <title>Exclusão de Funcionario - Formoid html5 form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
+    </h:head>
+    <ui:define name="content">
+        <h:body class="blurBg-false" style="background-color:#EBEBEB">
+            <h:outputStylesheet library="css" name="style_forms.css"/>
+
+            <h:form class="formoid-metro-cyan" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px" ><div class="title"><h2>Exclusão de Funcionario</h2></div>
+                <div class="element-input"><label class="title">Código do Funcionário</label><h:inputText  styleClass="large" value="#{funcionarioController.f.id}"  /></div>
+                <div ><h:commandButton type="submit" value="Buscar" action="#{funcionarioController.consultar()}"/></div>
+                <div class="element-name"><label class="title">Name</label><span class="nameFirst"><h:inputText  size="8" styleClass="nameFirst" value="#{funcionarioController.f.nome}" /><label class="subtitle">Primeiro Nome</label></span><span class="nameLast"><h:inputText  size="14" styleClass="nameLast" value="#{funcionarioController.f.sobrenome}" /><label class="subtitle">Sobrenome</label></span></div>
+                <div class="element-phone"><label class="title">Phone</label><h:inputText  styleClass="large"  maxlength="24"  value="#{funcionarioController.f.telefone}"/></div>
+                <div class="element-email"><label class="title">Email</label><h:inputText  styleClass="large"  value="#{funcionarioController.f.email}" /></div>
+                <div class="element-number"><label class="title">CPF</label><h:inputText  styleClass="large" value="#{funcionarioController.f.cpf}"/></div>
+                <div class="element-number"><label class="title">RG</label><h:inputText  styleClass="large"   value="#{funcionarioController.f.rg}"/></div>
+                <div class="element-radio"><label class="title">Sexo</label>		<div class="column column2"><label><input type="radio" name="radio" value="Feminino" /><span>Feminino</span></label></div><span class="clearfix"></span>
+                    <div class="column column2"><label><input type="radio" name="radio" value="Masculino" /><span>Masculino</span></label></div><span class="clearfix"></span>
+                </div>
+                <div class="element-input"><label class="title">Endereço</label><h:inputText  styleClass="large" value="#{funcionarioController.f.endereco}"  /></div>
+                <div class="element-number"><label class="title">Salario</label><h:inputText  styleClass="large" value="#{funcionarioController.f.salario}"/></div>
+                <div class="element-select"><label class="title">Funcionario</label><div class="large"><span>
+                            <h:selectOneMenu value="#{funcionarioController.f.perfil}">
+                                <f:selectItem itemLabel="Gerente" itemValue="1"/>
+                                <f:selectItem itemLabel="Recepcionista" itemValue="0"/>
+
+                            </h:selectOneMenu> 
+                            <i></i></span></div></div>
+                <div class="submit"><h:commandButton type="Alterar" value="Submit" action="#{funcionarioController.excluir()}"/></div></h:form>
+
+
+        </h:body>
+    </ui:define>
+</ui:composition>
+

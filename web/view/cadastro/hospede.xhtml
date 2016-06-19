@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Cadastro de Hospede</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
+
+    </h:head>
+    <ui:define name="content">
+        <h:body class="blurBg-false" style="background-color:#EBEBEB">
+
+
+            <h:outputStylesheet library="css" name="style_forms.css"/>
+            <!-- Start Formoid form-->
+            <script type="text/javascript" src="cadastro_cliente_files/formoid1/jquery.min.js"></script>
+            <h:form class="formoid-metro-cyan" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px" ><div class="title"><h2>Cadastro de Hospede</h2></div>
+                <div class="element-name"><label class="title">Nome</label><span class="nameFirst"><h:inputText size="8" value="#{hospedeController.h.nome}" /><label class="subtitle">Primeiro Nome</label></span>
+                    <span class="nameLast"><h:inputText  size="14" styleClass="large" value="#{hospedeController.h.sobrenome}" /><label class="subtitle">Sobrenome</label></span></div>
+                <div class="element-phone"><label class="title">Telefone</label><h:inputText styleClass="large" maxlength="10" value="#{hospedeController.h.telefone}"/></div>
+                <div class="element-email"><label class="title">Email</label><h:inputText styleClass="large" value="#{hospedeController.h.email}" /></div>
+                <div class="element-number"><label class="title">CPF</label><h:inputText styleClass="large"  value="#{hospedeController.h.cpf}"/></div>
+                <div class="element-number"><label class="title">RG</label><h:inputText styleClass="large"  value="#{hospedeController.h.rg}"/></div>
+                <div class="element-radio"><label class="title">Sexo</label>		<span class="clearfix"></span>
+
+                </div>
+                <div class="element-input"><label class="title">Endereço</label><h:inputText styleClass="large" value="#{hospedeController.h.endereco}"/></div>
+                <div class="element-input"><label class="title">Profissão</label><h:inputText styleClass="large" value="#{hospedeController.h.profissao}" /></div>
+                <div class="submit"><h:commandButton styleClass="submit" value="Cadastrar" action="#{hospedeController.incluirHospede()}"/></div></h:form>
+            <!-- Stop Formoid form-->
+
+        </h:body>
+    </ui:define>
+</ui:composition>
+
