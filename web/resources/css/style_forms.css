@@ -182,7 +182,7 @@ Metro style
     font-family: inherit;
 }
 .formoid-metro-cyan>div{
-    position: relative;
+    position: static;
     margin-left: 25px;
     margin-right: 25px;
 }
@@ -303,7 +303,7 @@ Not advised to edit stuff below this line
     display: block;
 }
 .formoid-metro-cyan .element-select div span{
-    position: relative;
+    position: static;
     display: inline-block;
     white-space: nowrap;
     vertical-align: middle;
