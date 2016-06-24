@@ -18,7 +18,7 @@ public class PessoaDAO {
         int pessoaID = 0;
         Conexao.getInstancia();
         String sql = "INSERT INTO Pessoa (nome,sobrenome,data_cadastro,"
-                + "cpf,rg,sexo,endereco,telefone,email) VALUES(?,?,?,?,?,?,?,?);";
+                + "cpf,rg,sexo,endereco,telefone,email) VALUES(?,?,?,?,?,?,?,?,?);";
         try {
 
             PreparedStatement pStatement = Conexao.getPreparedStatement(sql);
@@ -51,7 +51,7 @@ public class PessoaDAO {
         try {
             Conexao.getInstancia();
 
-            String sql = "UPDATE Pessoa SET nome = ?, sobrenome = ?,"
+            String sql = "UPDATE diaria SET nome = ?, sobrenome = ?,"
                     + "cpf = ?, rg = ?, sexo = ?, endereco = ?, telefone = ?, email = ? WHERE id = ?;";
 
             PreparedStatement ps = Conexao.getPreparedStatement(sql);
@@ -120,8 +120,41 @@ public class PessoaDAO {
             p = p1;
 
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDAO.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+
+    }
+    
+    public static Pessoa consultarPessoa(String rg) {
+        Pessoa p = new Pessoa();
+        try {
+
+            String sql = "SELECT * FROM Pessoa WHERE rg = ?;";
+
+            Conexao.getInstancia();
+            PreparedStatement ps = Conexao.getPreparedStatement(sql);
+            ps.setString(1, rg);
+
+            ResultSet rs = ps.executeQuery();
+
+            rs.next();
+            Pessoa p1 = new Pessoa();
+            p1.setNome(rs.getString("nome"));
+            p1.setSobrenome(rs.getString("sobrenome"));
+            p1.setCpf(rs.getString("cpf"));
+            p1.setRg(rs.getString("rg"));
+            p1.setSexo(rs.getString("sexo"));
+            p1.setEndereco(rs.getString("endereco"));
+            p1.setTelefone(rs.getString("telefone"));
+            p1.setEmail(rs.getString("email"));
+            p1.setPessoaId(rs.getInt("id"));
+
+            Conexao.fecharConexao();
+            p = p1;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return p;
 

@@ -16,19 +16,28 @@
 
     <ui:define name="content">
         <h:body class="blurBg-false" style="background-color:#EBEBEB">
-    <h:outputStylesheet library="css" name="style_forms.css"/>F
+            <h:outputStylesheet library="css" name="style_forms.css"/>F
 
             <h:form class="formoid-metro-cyan" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px" ><div class="title"><h2>Alteração de Funcionario</h2></div>
                 <div class="element-input"><label class="title">Código do Funcionário</label><h:inputText  styleClass="large" value="#{funcionarioController.f.id}"  /></div>
-                <div ><h:commandButton type="submit" value="Buscar" action="#{funcionarioController.consultar()}"/></div>
+                <div ><h:commandButton type="submit" value="Buscar" actionListener="#{funcionarioController.consultar()}"/></div>
                 <div class="element-name"><label class="title">Name</label><span class="nameFirst"><h:inputText  size="8" styleClass="nameFirst" value="#{funcionarioController.f.nome}" /><label class="subtitle">Primeiro Nome</label></span><span class="nameLast"><h:inputText  size="14" styleClass="nameLast" value="#{funcionarioController.f.sobrenome}" /><label class="subtitle">Sobrenome</label></span></div>
                 <div class="element-phone"><label class="title">Phone</label><h:inputText  styleClass="large"  maxlength="24"  value="#{funcionarioController.f.telefone}"/></div>
                 <div class="element-email"><label class="title">Email</label><h:inputText  styleClass="large"  value="#{funcionarioController.f.email}" /></div>
                 <div class="element-number"><label class="title">CPF</label><h:inputText  styleClass="large" value="#{funcionarioController.f.cpf}"/></div>
                 <div class="element-number"><label class="title">RG</label><h:inputText  styleClass="large"   value="#{funcionarioController.f.rg}"/></div>
-                <div class="element-radio"><label class="title">Sexo</label>		<div class="column column2"><label><input type="radio" name="radio" value="Feminino" /><span>Feminino</span></label></div><span class="clearfix"></span>
+                <div class="element-radio"><label class="title">Sexo</label>		
+                    <div class="column column2"><label><input type="radio" name="radio" value="Feminino" /><span>Feminino</span></label></div><span class="clearfix"></span>
                     <div class="column column2"><label><input type="radio" name="radio" value="Masculino" /><span>Masculino</span></label></div><span class="clearfix"></span>
                 </div>
+                <div class="element-radio">
+                    <h:selectOneRadio value="#{funcionarioController.f.sexo}" label="Sexo">
+                        <div class="column column2"> <f:selectItem itemValue="F" itemLabel="dfgdf"  /></div>
+                        <div class="column column2"><f:selectItem itemValue="F" itemLabel="sdssd"  /></div>
+
+                    </h:selectOneRadio>
+                </div>
+
                 <div class="element-input"><label class="title">Endereço</label><h:inputText  styleClass="large" value="#{funcionarioController.f.endereco}"  /></div>
                 <div class="element-number"><label class="title">Salario</label><h:inputText  styleClass="large" value="#{funcionarioController.f.salario}"/></div>
                 <div class="element-select"><label class="title">Funcionario</label><div class="large"><span>

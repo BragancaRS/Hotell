@@ -6,7 +6,7 @@
 
     <h:head>
         <meta charset="UTF-8"/>
-        <title>:: Prime Call ::</title>
+        <title>:: Hotell ::</title>
         <link rel="shortcut icon" href="icon.ico" />
        <h:outputStylesheet library="css" name="style_1.css"/>
 
@@ -22,7 +22,7 @@
                     <h:form>
                         <h:inputText  value="#{usuarioController.usuario.login}" pt:placeholder="Usuário" styleClass="login__input"/>
                         <h:inputSecret value="#{usuarioController.usuario.senha}" pt:placeholder="Senha" styleClass="login__input"/>
-                        <h:commandButton styleClass="form" value="Entrar" action="#{usuarioController.autenticar}"/>
+                        <h:commandButton styleClass="form" value="Entrar" action="#{usuarioController.autenticar}" actionListener="#{usuarioController.inserirCookie(usuarioController.usuario.login)}"/>
                     </h:form>
                 </form>
             </div>

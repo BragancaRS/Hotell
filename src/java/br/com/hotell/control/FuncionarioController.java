@@ -3,14 +3,14 @@ package br.com.hotell.control;
 import br.com.hotell.model.DAO.FuncionarioDAO;
 import br.com.hotell.model.OB.Funcionario;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author raphael
  */
 @ManagedBean
-@SessionScoped
+@javax.faces.bean.RequestScoped
 public class FuncionarioController {
 
     Funcionario f = new Funcionario();

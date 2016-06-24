@@ -24,7 +24,7 @@ public class NavControl {
     }
 
     public String incluirFuncionario() {
-        return "/view/cadastro/hospede.xhtml";
+        return "/view/cadastro/funcionario.xhtml";
     }
 
     public String excluirFuncionario() {
@@ -65,6 +65,10 @@ public class NavControl {
 
     public String alterarTipoQuarto() {
         return "/view/alteracao/TipoQuarto.xhtml";
+    }
+    
+      public String listarDiarias() {
+        return "/view/consulta/listagemDiaria.xhtml";
     }
 
 }

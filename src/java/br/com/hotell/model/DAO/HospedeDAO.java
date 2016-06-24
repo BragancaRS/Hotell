@@ -54,28 +54,44 @@ public class HospedeDAO {
     }
 
     public static Hospede consultarHospede(Hospede h) {
+        if (h == null) {
+            System.out.println("NULLLLLLLLLLLLLLLLLLLLLLLL");
+            System.out.println("NULLLLLLLLLLLLLLLLLLLLLLLL");
+            System.out.println("NULLLLLLLLLLLLLLLLLLLLLLLL");
+            System.out.println("NULLLLLLLLLLLLLLLLLLLLLLLL");
+            System.out.println("NULLLLLLLLLLLLLLLLLLLLLLLL");
+            return null;
+        }
         Hospede f1 = new Hospede();
         Hospede aux = new Hospede();
+        String sql = "SELECT * FROM hospede WHERE ";
         try {
             Pessoa p = new Pessoa();
-
-            String sql = "SELECT * FROM hospede WHERE id = ?;";
-
             Conexao.getInstancia();
-            PreparedStatement ps = Conexao.getPreparedStatement(sql);
-            ps.setInt(1, h.getId());
-
+            PreparedStatement ps;
+            if (h.getId() == 0) {
+                sql += "Pessoa_id = ?;";
+                //recupera os dados da tabela pessoa referentes ao hospede
+                p = PessoaDAO.consultarPessoa(h.getRg());
+                ps = Conexao.getPreparedStatement(sql);
+                ps.setInt(1, p.getPessoaId());
+            } else {
+                sql += "id = ?;";
+                ps = Conexao.getPreparedStatement(sql);
+                ps.setInt(1, h.getId());
+                //recupera os dados da tabela pessoa referentes ao hospede
+                p = PessoaDAO.consultarPessoa(h.getId());
+            }
+            System.out.println(sql + h.getId() + " -- " + h.getRg());
             ResultSet rs = ps.executeQuery();
 
             rs.next();
 
             aux.setId(rs.getInt("id"));
+            aux.setPessoaId(p.getPessoaId());
             aux.setProfissao(rs.getString("profissao"));
             aux.setPessoaId(rs.getInt("Pessoa_id"));
             Conexao.fecharConexao();
-
-            //recupera os dados da tabela pessoa referentes ao funcionario
-            p = PessoaDAO.consultarPessoa(aux.getPessoaId());
 
             aux.setNome(p.getNome());
             aux.setSobrenome(p.getSobrenome());
@@ -91,6 +107,8 @@ public class HospedeDAO {
             Logger.getLogger(FuncionarioDAO.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("pppppppppppppppppppppppppp");
+        System.out.println("pppppppppppppppppppppppppp   " + f1.getId());
         return f1;
     }
 

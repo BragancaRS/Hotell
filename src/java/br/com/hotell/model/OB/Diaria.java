@@ -4,7 +4,8 @@ public class Diaria {
 
     private int id;
 
-    private String data;
+    private String dataEntrada;
+    private String dataFeachamento;
 
     private Hospede hospede;
 
@@ -12,24 +13,24 @@ public class Diaria {
 
     private Funcionario funcionario;
 
-    private int Quarto;
-
-    private int tipoDeQuarto;
+    private Quarto quarto;
 
     public Diaria() {
-        this.data = "";
+        this.dataEntrada = "";
         this.hospede = new Hospede();
         this.valor = 0;
         this.funcionario = new Funcionario();
-        this.Quarto = 0;
+        this.quarto = new Quarto();
+        this.dataEntrada = "";
+        this.dataFeachamento = "";
     }
 
-    public Diaria(String data, Hospede hospede, float valor, Funcionario funcionario, int tipodeQuarto) {
-        this.data = data;
+    public Diaria(String dataEntrada, Hospede hospede, float valor, Funcionario funcionario, Quarto quarto) {
+        this.dataEntrada = dataEntrada;
         this.hospede = hospede;
         this.valor = valor;
         this.funcionario = funcionario;
-        this.Quarto = tipodeQuarto;
+        this.quarto = quarto;
     }
 
     public int getId() {
@@ -40,12 +41,12 @@ public class Diaria {
         this.id = id;
     }
 
-    public String getData() {
-        return data;
+    public String getDataEntrada() {
+        return dataEntrada;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataEntrada(String dataEntrada) {
+        this.dataEntrada = dataEntrada;
     }
 
     public Hospede getHospede() {
@@ -72,20 +73,20 @@ public class Diaria {
         this.funcionario = funcionario;
     }
 
-    public int getQuarto() {
-        return Quarto;
+    public Quarto getQuarto() {
+        return quarto;
     }
 
-    public void setQuarto(int tipoDeQuarto) {
-        this.Quarto = tipoDeQuarto;
+    public void setQuarto(Quarto quarto) {
+        this.quarto = quarto;
     }
 
-    public int getTipoDeQuarto() {
-        return tipoDeQuarto;
+    public String getDataFeachamento() {
+        return dataFeachamento;
     }
 
-    public void setTipoDeQuarto(int tipoDeQuarto) {
-        this.tipoDeQuarto = tipoDeQuarto;
+    public void setDataFeachamento(String dataFeachamento) {
+        this.dataFeachamento = dataFeachamento;
     }
 
 }

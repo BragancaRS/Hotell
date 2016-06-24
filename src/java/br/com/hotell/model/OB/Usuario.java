@@ -1,6 +1,8 @@
 package br.com.hotell.model.OB;
 
-public class Usuario extends Funcionario {
+import java.io.Serializable;
+
+public class Usuario extends Funcionario implements Serializable{
 
     private int id;
     private int FuncionarioID;

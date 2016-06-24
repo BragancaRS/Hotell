@@ -1,9 +1,12 @@
 package br.com.hotell.model.OB;
 
+import javax.validation.constraints.NotNull;
+
 public class Pessoa {
 
     private int id;
 
+    @NotNull(message = "Campo Nome obrigatório")
     private String nome;
 
     private String sobrenome;

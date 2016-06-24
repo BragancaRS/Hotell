@@ -1,10 +1,12 @@
 package br.com.hotell.model.DAO;
 
 import br.com.hotell.conn.Conexao;
+import br.com.hotell.model.OB.Diaria;
 import br.com.hotell.model.OB.Quarto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -71,7 +73,7 @@ public class QuartoDAO {
         Quarto p = new Quarto();
         try {
 
-            String sql = "SELECT * FROM Quarto WHERE numero = ?;";
+            String sql = "SELECT * FROM quarto WHERE id = ?;";
 
             Conexao.getInstancia();
             PreparedStatement ps = Conexao.getPreparedStatement(sql);
@@ -94,6 +96,59 @@ public class QuartoDAO {
         }
         return p;
 
+    }
+
+    public static ArrayList<Quarto> listarQuartos() {
+        ArrayList<Quarto> quartos = new ArrayList();
+        try {
+
+            String sql = "SELECT * FROM quarto;";
+
+            Conexao.getInstancia();
+            PreparedStatement ps = Conexao.getPreparedStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Quarto p1 = new Quarto();
+                p1.setId(rs.getInt("id"));
+                p1.setNumero(rs.getString("numero"));
+                p1.setTipo(rs.getInt("tipo_quarto_id"));
+                quartos.add(p1);
+            }
+
+            Conexao.fecharConexao();
+        } catch (SQLException ex) {
+            Logger.getLogger(QuartoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return quartos;
+    }
+
+    public static ArrayList<Quarto> listarQuartosDisponiveis() {
+        ArrayList<Quarto> quartos = new ArrayList();
+        ArrayList<Diaria> diarias = new ArrayList<>();
+        ArrayList<Quarto> quartosDisponiveis = new ArrayList<>();
+
+        quartos = QuartoDAO.listarQuartos();
+        diarias = DiariaDAO.listarDiarias();
+        boolean quartoDisponivel = true;
+        for (int i = 0; i < quartos.size(); i++) {
+            for (int j = 0; j < diarias.size(); j++) {
+                if (quartos.get(i).getId() == diarias.get(j).getQuarto().getId()) {
+                    if (diarias.get(j).getDataFeachamento() == null) {
+                        quartoDisponivel = false;
+
+                    }
+                }
+            }
+            if (quartoDisponivel == true) {
+                quartosDisponiveis.add(quartos.get(i));
+
+            }
+            quartoDisponivel = true;
+        }
+
+        return quartosDisponiveis;
     }
 
 }

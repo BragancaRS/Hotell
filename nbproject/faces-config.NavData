@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
-    <Scope Scope="Project"/>
+    <Scope Scope="Project">
+        <Node id="view/Gerente.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="view/alteracao/Funcionario.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="view/exclusao/Hospede.xhtml" x="386" y="239" zoom="true"/>
+        <Node id="view/newjsf1.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="view/alteracao/TipoQuarto.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="view/cadastro/funcionario.xhtml" x="1051" y="198" zoom="true"/>
+        <Node id="view/cadastro/Diaria.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="view/exclusao/Quarto.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="view/exclusao/Funcionario.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="view/cadastro/TipoQuarto.xhtml" x="719" y="389" zoom="true"/>
+        <Node id="view/newjsf.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="view/alteracao/Quarto.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="view/template.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="view/cadastro/Quarto.xhtml" x="738" y="83" zoom="true"/>
+        <Node id="view/cadastro/hospede.xhtml" x="1074" y="103" zoom="true"/>
+        <Node id="view/index.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="view/alteracao/Hospede.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="view/exclusao/TipoQuarto.xhtml" x="1159" y="366" zoom="true"/>
+    </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

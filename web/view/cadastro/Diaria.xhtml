@@ -5,35 +5,67 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <head>
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                >
+    <h:head>
         <meta charset="utf-8" />
         <title>Diaria - Formoid bootstrap forms</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    </head>
+    </h:head>
     <ui:define name="content">
         <body class="blurBg-false" style="background-color:#EBEBEB">
             <h:outputStylesheet library="css" name="style_forms.css"/>
-
+            <h:outputStylesheet library="css" name="tabelas.css"/>
             <script type="text/javascript" src="aaa_files/formoid1/jquery.min.js"></script>
-            <h:form class="formoid-metro-cyan" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px" >
+            <h:form class="formoid-metro-cyan" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:80%;min-width:150px" >
                 <div class="title"><h2>Diaria</h2></div>
-                <div class="element-input"><label class="title">RG Hóspede</label><h:inputText class="large" value="#{diariaController.d.hospede.rg}"/></div>
+                <div class="element-input"><label class="title">RG Hóspede</label><h:inputText class="large" value="#{diariaController.rg}"/></div>
                 <div class="element-select"><label class="title">Tipo de Hospedagem</label><div class="large"><span>
-                            <h:selectOneMenu value="#{diariaController.d.tipoDeQuarto}">
-                                <f:selectItem itemLabel="Suite Master" itemValue="1"/>
-                                <f:selectItem itemLabel="Suite Simples" itemValue="2"/>
-                                <f:selectItem itemLabel="Solteiro Simples" itemValue="3"/>
+                            <h:selectOneMenu value="#{diariaController.tipoDeQuarto}"  > 
+                                <f:selectItems value="#{diariaController.tdqs}"  />
+                            </h:selectOneMenu>
+                            <i></i></span></div>
+                </div>
 
-                            </h:selectOneMenu> 
-                            <i></i></span></div></div>
-                <div class="element-input"><label class="title">Valor da Diaria</label><h:inputText class="large" value="#{diariaController.d.valor}"/></div>
-                <div class="submit"><input type="submit" value="Submit"/></div>
-            </h:form>
-               
-            
+                <div class="submit">
+                     <h:commandButton value =" Salva ">
+                        <f:ajax
+                            event = "click"
+                            execute = "formulario "
+                            render = "formulario "
+                            listener ="#{ diariaController.incluirDiaria()}"/>
+                           </h:commandButton>
+                    </div>
 
-        </body>
-    </ui:define>
-</ui:composition>
+                    <div class="title" ><h2>Diaria</h2></div>
+                    <h:dataTable value="#{diariaController.diarias}" var="c" styleClass="tabela"   headerClass="cabecalho" columnClasses="ultimo,primeiro" id="formulario">
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Hospede"/>
+                            </f:facet>
+                            <h:outputLabel value="#{c.hospede.nome} #{c.hospede.sobrenome}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Número do Quarto"/>
+                            </f:facet>
+                            <h:outputLabel value="#{c.quarto.numero}"/>
+                        </h:column>
+                        
+                         <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Data da Diaria"/>
+                            </f:facet>
+                             <h:outputLabel value="#{c.dataEntrada}"/>
+                        </h:column>
+
+                    </h:dataTable>
+                </h:form>
+
+
+
+            </body>
+        </ui:define>
+    </ui:composition>
 

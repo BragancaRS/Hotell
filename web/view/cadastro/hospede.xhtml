@@ -20,7 +20,7 @@
             <!-- Start Formoid form-->
             <script type="text/javascript" src="cadastro_cliente_files/formoid1/jquery.min.js"></script>
             <h:form class="formoid-metro-cyan" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px" ><div class="title"><h2>Cadastro de Hospede</h2></div>
-                <div class="element-name"><label class="title">Nome</label><span class="nameFirst"><h:inputText size="8" value="#{hospedeController.h.nome}" /><label class="subtitle">Primeiro Nome</label></span>
+                <div class="element-name"><label class="title">Nome</label><span class="nameFirst"><h:inputText id="nome" size="8" value="#{hospedeController.h.nome}" label="Nome"><h:message for="nome"></h:message></h:inputText>  <label class="subtitle">Primeiro Nome</label></span>
                     <span class="nameLast"><h:inputText  size="14" styleClass="large" value="#{hospedeController.h.sobrenome}" /><label class="subtitle">Sobrenome</label></span></div>
                 <div class="element-phone"><label class="title">Telefone</label><h:inputText styleClass="large" maxlength="10" value="#{hospedeController.h.telefone}"/></div>
                 <div class="element-email"><label class="title">Email</label><h:inputText styleClass="large" value="#{hospedeController.h.email}" /></div>
